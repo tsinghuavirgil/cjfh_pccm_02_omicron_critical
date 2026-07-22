@@ -72,7 +72,7 @@ sc.pl.embedding_density(umap_adata, basis='umap',
                         group='oc_01_control',colorbar_loc=None,
                         save = 'density_01_control.pdf')
 #############
-#dotplot_ecm#
+#dotplot_neu#
 #############
 umap_adata.layers['scaled'] = sc.pp.scale(umap_adata, copy=True).X
 marker_dict = {'AEC': ['EPCAM','KRT8'],

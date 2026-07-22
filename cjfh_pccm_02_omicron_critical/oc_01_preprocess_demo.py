@@ -51,7 +51,7 @@ sc.pl.scatter(adata, x='total_counts', y='n_genes_by_counts')
 
 adata = adata[adata.obs.pct_counts_mt < 10, :].copy()
 
-sc.pp.normalize_total(umap_adata, target_sum=1e4)
+sc.pp.normalize_total(adata, target_sum=1e4)
 
 sc.pp.log1p(adata)
 
@@ -91,7 +91,7 @@ sc.pl.umap(adata, color=['leiden'])
 
 sc.tl.rank_genes_groups(adata, 'leiden', method='wilcoxon')
 
-deg_adata = pd.DataFrame(umap_adata.uns['rank_genes_groups']['names']).head(50)
+deg_adata = pd.DataFrame(adata.uns['rank_genes_groups']['names']).head(50)
 deg_adata
 
 adata.write('omicron_02_umap_adata.h5ad')
